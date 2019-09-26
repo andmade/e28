@@ -8,8 +8,8 @@
       href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap"
       rel="stylesheet"
     />
-    <script src="hilow.js"></script>
-    <title>Week 2 Game: Hi/Low</title>
+    <script src="highlow.js"></script>
+    <title>Week 2 Game: High/Low</title>
 
     <style>
       body {
@@ -46,11 +46,11 @@
   </head>
   <body>
     <header>
-      <h1>Week 2 Game: Hi/Low</h1>
+      <h1>Week 2 Game: High/Low</h1>
       <p class="game-description">
         <strong>Instructions:</strong> In this game, your goal is to determine the value
         of a randomly picked number between 1 and 100. Guesses that are incorrect will
-        indicate whether they are too high or too low. You have 5 tries to guess the
+        indicate whether they are too high or too low. You have 6 tries to guess the
         correct answer!
       </p>
     </header>
@@ -60,7 +60,7 @@
         <input name="guess" id="guess" type="number" min="1" max="100" required />
         <button class="submit-button" type="submit">Guess!</button>
       </form>
-      <p><strong>Remaining Tries:</strong> <span id="remaining_tries">5</span></p>
+      <p><strong>Remaining Tries:</strong> <span id="remaining_tries">6</span></p>
       <dl id="guesses_list"></dl>
       <p id="endgame_output"></p>
       <button class="reset-button" style="display:none;">
