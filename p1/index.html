@@ -9,42 +9,10 @@
       href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="highlow.css" />
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" defer></script>
     <script src="highlowvue.js" defer></script>
     <title>Project 1 | High/Low Game</title>
-
-    <style>
-      body {
-        font-family: 'Lato', sans-serif;
-        padding: 20px;
-        max-width: 600px;
-      }
-
-      label {
-        font-weight: bold;
-      }
-
-      dl {
-        display: flex;
-        flex-flow: row wrap;
-        max-width: 200px;
-        font-weight: bold;
-      }
-
-      dt {
-        flex-basis: 15%;
-      }
-      dd {
-        flex-basis: 60%;
-      }
-
-      .correct-result {
-        color: green;
-      }
-      .incorrect-result {
-        color: red;
-      }
-    </style>
   </head>
   <body>
     <header>
@@ -56,22 +24,30 @@
         correct answer!
       </p>
     </header>
-    <main id="game">
+    <main id="game" v-cloak>
       <label for="guess">Your Guess:</label>
       <input v-model="guess" name="guess" type="number" min="1" max="100" required />
       <!-- Figure out why the guesses only go after you change the input after first guess -->
       <button class="submit-button" v-on:click="guesses[guess] = 'TODO'">Guess!</button>
 
       <!-- Tie this to the remaining tries data value in Vue -->
-      <p><strong>Remaining Tries:</strong> <span id="remaining_tries">6</span></p>
-      <dl id="guesses_list">
-        <!-- Put in dt/dd for loop for guesses object -->
-      </dl>
-      <p id="endgame_output"></p>
+      <p>
+        <strong>Remaining Tries:</strong>
+        <span id="remaining_tries">{{ remainingTries }}</span>
+      </p>
+      <template v-if="guesses">
+        <dl id="guesses_list">
+          <!-- Put in dt/dd v-for loop for guesses object -->
+        </dl>
+      </template>
+
       <!-- Redo the button with a v-if directive based on WIN or remaining tries value -->
-      <button class="reset-button" style="display:none;">
-        Play again!
-      </button>
+      <template v-if="endgame">
+        <p id="endgame_output"></p>
+        <button class="reset-button" style="display:none;">
+          Play again!
+        </button>
+      </template>
     </main>
   </body>
 </html>
