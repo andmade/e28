@@ -24,23 +24,31 @@
       </p>
     </header>
     <main id="game" v-cloak>
-      <!-- Player Card Section -->
-      <span>Your Hand:</span>
-      <template v-for="(card, index) in playerHand">
-        <label :for="card.value+card.suit" :class="card.suit">{{
-          cardNames.get(card.value)
-        }}</label>
-        <input
-          type="radio"
-          :id="card.value+card.suit"
-          :value="index"
-          v-model="playerSelection"
-        />
-      </template>
-      <p v-if="playerCard">
-        You've selected the {{ cardNames.get(playerCard.value) }} of
-        {{ playerCard.suit }}.
-      </p>
+      <section>
+        <!-- Player Card Section -->
+        <span>Your Hand:</span>
+        <template v-for="(card, index) in playerHand">
+          <label :for="card.value+card.suit" :class="card.suit">{{
+            cardNames.get(card.value)
+          }}</label>
+          <input
+            type="radio"
+            :id="card.value+card.suit"
+            :value="index"
+            v-model="playerSelection"
+          />
+        </template>
+        <p v-if="playerCard">
+          You've selected the {{ cardNames.get(playerCard.value) }} of
+          {{ playerCard.suit }}.
+        </p>
+      </section>
+      <section>
+        <!-- War Section -->
+        <span>Battlefield:</span>
+        <div class="card-display"></div>
+        <button @click="playWar()" @keyup.enter="playWar()">Play Card</button>
+      </section>
     </main>
   </body>
 </html>

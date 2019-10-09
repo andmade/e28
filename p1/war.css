@@ -39,16 +39,27 @@ label::after {
   content: '\2660';
 }
 
+.hearts,
+.diamonds {
+  color: red;
+}
 .hearts::after {
   content: '\2665';
-  color: red;
 }
 
 .diamonds::after {
   content: '\2666';
-  color: red;
 }
 
 .clubs::after {
   content: '\2663';
+}
+
+.card-display {
+  font-size: 2em;
+}
+
+section {
+  width: 50%;
+  float: left;
 }
