@@ -11,6 +11,11 @@ In completing the Week 4 assignment, I did some work converting my Week 2 High-L
 
 For outside resources, do not include course notes or examples, but do include any/all of the following:
 
+- MDN Documentation Map: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map
+- CSS Entities: https://www.w3schools.com/cssref/css_entities.asp
+
+**Examples:**
+
 - External blogs/tutorials/books
 - Specific forum posts (e.g. StackOverflow) that provided information you utilized in your code
 - Sources for images that you did not create

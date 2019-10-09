@@ -27,17 +27,19 @@
       <!-- Player Card Section -->
       <span>Your Hand:</span>
       <template v-for="(card, index) in playerHand">
-        <label :for="card.name+card.suit">{{ card.name }}</label>
+        <label :for="card.value+card.suit" :class="card.suit">{{
+          cardNames.get(card.value)
+        }}</label>
         <input
           type="radio"
-          :id="card.name+card.suit"
+          :id="card.value+card.suit"
           :value="index"
-          v-model="playerCard"
+          v-model="playerSelection"
         />
       </template>
-      <p v-if="playerCard || playerCard === 0">
-        You've selected the {{ playerHand[playerCard].name }} of
-        {{ playerHand[playerCard].suit }}.
+      <p v-if="playerCard">
+        You've selected the {{ cardNames.get(playerCard.value) }} of
+        {{ playerCard.suit }}.
       </p>
     </main>
   </body>

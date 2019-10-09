@@ -32,3 +32,23 @@ dd {
 .incorrect-result {
   color: red;
 }
+label::after {
+  font-size: 1.5em;
+}
+.spades::after {
+  content: '\2660';
+}
+
+.hearts::after {
+  content: '\2665';
+  color: red;
+}
+
+.diamonds::after {
+  content: '\2666';
+  color: red;
+}
+
+.clubs::after {
+  content: '\2663';
+}
