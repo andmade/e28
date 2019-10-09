@@ -5,49 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-    <link
-      href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="highlow.css" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" />
+    <link rel="stylesheet" href="war.css" />
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" defer></script>
-    <script src="highlowvue.js" defer></script>
-    <title>Project 1 | High/Low Game</title>
+    <script src="war.js" defer></script>
+    <title>Project 1 | Modified War Card Game</title>
   </head>
   <body>
     <header>
-      <h1>Project 1: High/Low</h1>
+      <h1>Project 1 | Modified War Card Game</h1>
       <p class="game-description">
-        <strong>Instructions:</strong> In this game, your goal is to determine the value
-        of a randomly picked number between 1 and 100. Guesses that are incorrect will
-        indicate whether they are too high or too low. You have 6 tries to guess the
-        correct answer!
+        <strong>Instructions:</strong> Lorem ipsum dolor sit amet consectetur adipisicing
+        elit. Dolorum, laborum itaque exercitationem delectus quos culpa distinctio quis
+        debitis eius commodi ducimus a tempore accusamus fugit aspernatur nobis aliquam
+        amet suscipit.Quibusdam perspiciatis illum quos magnam a, debitis, aut aperiam
+        asperiores eaque delectus at! Animi, molestias. Commodi perferendis recusandae
+        ipsa iste maxime, illo debitis totam aspernatur quos tempora numquam fuga atque.
       </p>
     </header>
     <main id="game" v-cloak>
-      <label for="guess">Your Guess:</label>
-      <input v-model="guess" name="guess" type="number" min="1" max="100" required />
-      <!-- Figure out why the guesses only go after you change the input after first guess -->
-      <button class="submit-button" v-on:click="guesses[guess] = 'TODO'">Guess!</button>
-
-      <!-- Tie this to the remaining tries data value in Vue -->
-      <p>
-        <strong>Remaining Tries:</strong>
-        <span id="remaining_tries">{{ remainingTries }}</span>
+      <!-- Player Card Section -->
+      <span>Your Hand:</span>
+      <template v-for="(card, index) in playerHand">
+        <label :for="card.name+card.suit">{{ card.name }}</label>
+        <input
+          type="radio"
+          :id="card.name+card.suit"
+          :value="index"
+          v-model="playerCard"
+        />
+      </template>
+      <p v-if="playerCard || playerCard === 0">
+        You've selected the {{ playerHand[playerCard].name }} of
+        {{ playerHand[playerCard].suit }}.
       </p>
-      <template v-if="guesses">
-        <dl id="guesses_list">
-          <!-- Put in dt/dd v-for loop for guesses object -->
-        </dl>
-      </template>
-
-      <!-- Redo the button with a v-if directive based on WIN or remaining tries value -->
-      <template v-if="endgame">
-        <p id="endgame_output"></p>
-        <button class="reset-button" style="display:none;">
-          Play again!
-        </button>
-      </template>
     </main>
   </body>
 </html>

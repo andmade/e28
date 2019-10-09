@@ -60,12 +60,13 @@ window.onload = function() {
     the reset button. Plus disable input if they lost. */
     if (result === 0) {
       endgameOutput.classList.add('correct-result');
+      guessInput.disabled = true;
       endgameOutput.textContent = `You win! The correct number was ${correctNumber}.`;
       resetButton.style.display = 'block';
     } else if (remainingTries.textContent == 0) {
       endgameOutput.classList.add('incorrect-result');
-      endgameOutput.textContent = `You lose! The correct number was ${correctNumber}.`;
       guessInput.disabled = true;
+      endgameOutput.textContent = `You lose! The correct number was ${correctNumber}.`;
       resetButton.style.display = 'block';
     }
   }
