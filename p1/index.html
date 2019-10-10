@@ -15,12 +15,13 @@
     <header>
       <h1>Project 1 | Modified War Card Game</h1>
       <p class="game-description">
-        <strong>Instructions:</strong> Lorem ipsum dolor sit amet consectetur adipisicing
-        elit. Dolorum, laborum itaque exercitationem delectus quos culpa distinctio quis
-        debitis eius commodi ducimus a tempore accusamus fugit aspernatur nobis aliquam
-        amet suscipit.Quibusdam perspiciatis illum quos magnam a, debitis, aut aperiam
-        asperiores eaque delectus at! Animi, molestias. Commodi perferendis recusandae
-        ipsa iste maxime, illo debitis totam aspernatur quos tempora numquam fuga atque.
+        <strong>Instructions:</strong>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, laborum itaque
+        exercitationem delectus quos culpa distinctio quis debitis eius commodi ducimus a
+        tempore accusamus fugit aspernatur nobis aliquam amet suscipit.Quibusdam
+        perspiciatis illum quos magnam a, debitis, aut aperiam asperiores eaque delectus
+        at! Animi, molestias. Commodi perferendis recusandae ipsa iste maxime, illo
+        debitis totam aspernatur quos tempora numquam fuga atque.
       </p>
     </header>
     <main id="game" v-cloak>
@@ -28,9 +29,9 @@
         <!-- Player Card Section -->
         <span>Your Hand:</span>
         <template v-for="(card, index) in playerHand">
-          <label :for="card.value+card.suit" :class="card.suit">{{
-            cardNames.get(card.value)
-          }}</label>
+          <label :for="card.value+card.suit" :class="card.suit">
+            {{ card.name }}
+          </label>
           <input
             type="radio"
             :id="card.value+card.suit"
@@ -38,16 +39,28 @@
             v-model="playerSelection"
           />
         </template>
-        <p v-if="playerCard">
-          You've selected the {{ cardNames.get(playerCard.value) }} of
-          {{ playerCard.suit }}.
-        </p>
+        <p v-if="playerCard">You've selected the {{ playerCard | cardString }}.</p>
       </section>
       <section>
         <!-- War Section -->
         <span>Battlefield:</span>
         <div class="card-display"></div>
-        <button @click="playWar()" @keyup.enter="playWar()">Play Card</button>
+        <!-- TODO: Add directions to select a card using v-show and player selection, plus disable and enable the button depending on player selection but always showing  -->
+        <button
+          v-show="playerCard"
+          @click="conductBattle()"
+          @keyup.enter="conductBattle()"
+        >
+          Play Card
+        </button>
+      </section>
+      <section>
+        <!-- Score Section -->
+        <p>Player: {{ playerScore }}</p>
+        <p>Computer: {{ computerScore }}</p>
+        <p v-if="roundResult">
+          Your last card was the {{ previousPlayerCard | cardString }}.
+        </p>
       </section>
     </main>
   </body>
