@@ -17,8 +17,6 @@ Since the Week 4 material goes over so much of the High-Low game in Vue, I decid
 
 ## Outside Resources
 
-For outside resources, do not include course notes or examples, but do include any/all of the following:
-
 - Image of Card Deck: http://clipart-library.com/clipart/8cxrbGE6i.htm
 - Javascript Map Prototype: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map
 - Shuffling the Card Deck / Randomizing a Javascript Array: https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array and https://en.wikipedia.org/wiki/Fisher–Yates_shuffle _(This algorithm essentially seems to be the definitive/standard way to shuffle an array in an language that doesn't have a shuffle array function)_
