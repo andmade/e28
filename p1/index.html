@@ -6,62 +6,129 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" />
+    <link
+      href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="war.css" />
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" defer></script>
     <script src="war.js" defer></script>
     <title>Project 1 | Modified War Card Game</title>
   </head>
   <body>
-    <header>
-      <h1>Project 1 | Modified War Card Game</h1>
-      <p class="game-description">
-        <strong>Instructions:</strong>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, laborum itaque
-        exercitationem delectus quos culpa distinctio quis debitis eius commodi ducimus a
-        tempore accusamus fugit aspernatur nobis aliquam amet suscipit.Quibusdam
-        perspiciatis illum quos magnam a, debitis, aut aperiam asperiores eaque delectus
-        at! Animi, molestias. Commodi perferendis recusandae ipsa iste maxime, illo
-        debitis totam aspernatur quos tempora numquam fuga atque.
-      </p>
-    </header>
-    <main id="game" v-cloak>
-      <section>
-        <!-- Player Card Section -->
-        <span>Your Hand:</span>
-        <template v-for="(card, index) in playerHand">
-          <label :for="card.value+card.suit" :class="card.suit">
-            {{ card.name }}
-          </label>
-          <input
-            type="radio"
-            :id="card.value+card.suit"
-            :value="index"
-            v-model="playerSelection"
-          />
-        </template>
-        <p v-if="playerCard">You've selected the {{ playerCard | cardString }}.</p>
-      </section>
-      <section>
-        <!-- War Section -->
-        <span>Battlefield:</span>
-        <div class="card-display"></div>
-        <!-- TODO: Add directions to select a card using v-show and player selection, plus disable and enable the button depending on player selection but always showing  -->
-        <button
-          v-show="playerCard"
-          @click="conductBattle()"
-          @keyup.enter="conductBattle()"
-        >
-          Play Card
+    <div id="game">
+      <header v-cloak>
+        <div class="game-header">
+          <h1>Project 1 | Modified War Card Game</h1>
+          <button v-cloak v-if="!newGame" @click="showDirections=!showDirections">
+            {{ showDirections ? 'Hide Directions' : 'Show Directions' }}
+          </button>
+        </div>
+        <div class="game-description" v-show="showDirections">
+          <p>
+            <strong>How to Play:</strong>The classic card game <i>War</i> , with a twist.
+            In this take, a standard 52-card deck is evenly divided between two players.
+            Each player starts with a hand of 5 cards. At each turn, they simulataneously
+            pick a card to 'go to battle' against the other player. The results of the
+            battle are determined as so:
+          </p>
+
+          <ul>
+            <li>Diamonds beat Spades and Spades beat Hearts</li>
+            <li>Hearts beat Clubs and Clubs beat Diamonds</li>
+            <li>
+              If a two cards of the same color (i.e. Spades and Clubs, Hearts and
+              Diamonds) are selected, the card with the highest number value wins. If the
+              cards are the same value, it's a tie and neither side gains a point.
+            </li>
+            <li>
+              Every round won increases the player score by one point. In the event of a
+              tie, neither player receives a point. At the end of the game, the player
+              with the most points wins. If the players have equal scores, then it ends in
+              a draw.
+            </li>
+          </ul>
+        </div>
+      </header>
+      <main v-cloak>
+        <button v-if="newGame" @click="startGame()" @keyup.enter="startGame()">
+          Ready? Let's Begin!
         </button>
-      </section>
-      <section>
-        <!-- Score Section -->
-        <p>Player: {{ playerScore }}</p>
-        <p>Computer: {{ computerScore }}</p>
-        <p v-if="roundResult">
-          Your last card was the {{ previousPlayerCard | cardString }}.
-        </p>
-      </section>
-    </main>
+        <div id="game_area" v-if="!newGame">
+          <section class="battle-area">
+            <!-- War Section -->
+            <h2>Round Results</h2>
+            <p v-if="roundResult" class="round-results" :class="roundResult">
+              {{ roundResult }}
+            </p>
+            <template v-if="roundResult">
+              <div class="battle-card">
+                <p class="section-title">Your Card</p>
+                <div class="card" :class="previousPlayerCard.suit">
+                  {{ previousPlayerCard.name }}
+                </div>
+              </div>
+              <div class="battle-card">
+                <p class="section-title">Computer Card</p>
+                <div class="card" :class="previousComputerCard.suit">
+                  {{ previousComputerCard.name }}
+                </div>
+              </div>
+            </template>
+          </section>
+          <section class="score-section">
+            <!-- Score Section -->
+            <h2>Score</h2>
+            <p class="section-title">Player: {{ playerScore }}</p>
+            <p class="section-title">Computer: {{ computerScore }}</p>
+            <template v-if="!playerHand.length">
+              <div>
+                <p v-if="gameResult == 'WIN'" class="endgame-results">
+                  Game over! You have <span class="WIN">WON</span>!
+                </p>
+                <p v-if="gameResult == 'LOSE'" class="endgame-results">
+                  Game over! You have <span class="LOSE">LOST</span>!
+                </p>
+                <p v-if="gameResult == 'TIE'" class="endgame-results">
+                  Game over! The war ended in a <span class="TIE">DRAW</span>!
+                </p>
+              </div>
+              <button @click="replayGame()" @keyup.enter="replayGame()">
+                New game
+              </button>
+            </template>
+          </section>
+          <section class="player-area">
+            <button
+              class="play-card-button"
+              v-show="playerCard"
+              @click="conductBattle()"
+              @keyup.enter="conductBattle()"
+            >
+              Play Card
+            </button>
+            <div class="player-deck">
+              <img v-if="playerDeck.length" src="deck.jpg" alt="Back of Card Deck" />
+              <p>
+                <strong>Cards in Deck: {{ playerDeck.length }} </strong>
+              </p>
+            </div>
+            <div class="card-hand">
+              <template v-for="(card, index) in playerHand">
+                <input
+                  type="radio"
+                  :id="card.value+card.suit"
+                  :value="index"
+                  v-model="playerSelection"
+                />
+                <label :for="card.value+card.suit" class="card" :class="card.suit">
+                  {{ card.name }}
+                </label>
+              </template>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
   </body>
 </html>

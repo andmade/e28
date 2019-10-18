@@ -1,39 +1,122 @@
 [v-cloak] {
   display: none;
 }
+:root {
+  font-size: 18px;
+}
 
 body {
   font-family: 'Lato', sans-serif;
-  padding: 20px;
-  max-width: 600px;
+  background-color: #f5f5f5;
 }
 
-label {
+button {
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  color: white;
+  font-size: 1.3em;
   font-weight: bold;
-}
-
-dl {
-  display: flex;
-  flex-flow: row wrap;
-  max-width: 200px;
-  font-weight: bold;
-}
-
-dt {
-  flex-basis: 15%;
-}
-dd {
-  flex-basis: 60%;
-}
-
-.correct-result {
-  color: green;
-}
-.incorrect-result {
-  color: red;
+  background-color: #2a3042;
+  display: block;
+  margin: 0 auto;
 }
 label::after {
   font-size: 1.5em;
+}
+
+header {
+  background-color: #2a3042;
+  color: white;
+  font-weight: bold;
+  padding: 5px 10px;
+  margin-bottom: 10px;
+}
+
+.game-header button {
+  background-color: #82a59d;
+}
+.game-header > button,
+h1 {
+  display: inline-block;
+  margin-right: 40px;
+}
+
+#game_area {
+  display: grid;
+  min-width: 800px;
+  justify-content: space-around;
+  justify-items: center;
+  grid-template-areas:
+    '. battle score .'
+    'deck deck deck deck';
+}
+
+.battle-area {
+  grid-area: battle;
+  min-height: 330px;
+  text-align: center;
+}
+
+.section-title {
+  font-weight: bold;
+  font-size: 1.1em;
+}
+.score-section {
+  grid-area: score;
+}
+
+.battle-card {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.player-area {
+  grid-area: deck;
+  display: grid;
+  grid-template-areas:
+    'button button button'
+    'pile hand hand';
+  row-gap: 1.5em;
+  grid-template-rows: 50px auto;
+}
+
+.player-deck {
+  text-align: center;
+  grid-area: pile;
+  height: 100px;
+}
+
+.card-hand {
+  display: table;
+  grid-area: hand;
+}
+
+.play-card-button {
+  grid-area: button;
+  justify-self: center;
+}
+
+.card {
+  border: solid 1px black;
+  border-radius: 3px;
+  width: 125px;
+  height: 150px;
+  background-color: white;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  font-size: 2.5em;
+}
+
+input[type='radio'] {
+  visibility: hidden;
+}
+
+input[type='radio']:checked + label,
+label:hover {
+  transform: translateY(-20px) scale(1.05);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.7);
 }
 .spades::after {
   content: '\2660';
@@ -55,11 +138,30 @@ label::after {
   content: '\2663';
 }
 
+.round-results {
+  font-weight: bold;
+  font-size: 1.3em;
+  margin: 0;
+  padding: 0;
+}
+
+.WIN {
+  color: green;
+}
+
+.LOSE {
+  color: red;
+}
+
+.TIE {
+  color: blue;
+}
+
 .card-display {
   font-size: 2em;
 }
 
-section {
-  width: 50%;
-  float: left;
+.endgame-results {
+  font-size: 1.5em;
+  font-weight: bold;
 }
