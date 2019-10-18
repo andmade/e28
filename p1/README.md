@@ -13,7 +13,7 @@ Since the Week 4 material goes over so much of the High-Low game in Vue, I decid
 
 - Diamonds beat Spades and Spades beat Hearts
 - Hearts beat Clubs and Clubs beat Diamonds
-- If a two cards of the same color (i.e. Spades and Clubs, Hearts and Diamonds) are selected, the card with the highest number value wins. If the cards are the same value, it's a tie and neither side gains a point.
+- If two cards of the same color (i.e. Spades and Clubs, Hearts and Diamonds) are selected, the card with the highest number value wins. If the cards are the same value, it's a tie and neither side gains a point.
 
 ## Outside Resources
 
