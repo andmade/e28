@@ -8,22 +8,8 @@
   </head>
 
   <body>
-    <h1>Vue.js Intro</h1>
-
     <div id="app" v-cloak>
-      <div>
-        <label>What's your name? <input type="text" v-model="playerName"/></label>
-        <p v-if="playerName">Player: {{ playerName }}</p>
-        <p v-else>Enter your player name to begin the game.</p>
-      </div>
-
-      <div>
-        <label>What's your guess? <input type="text" v-model="guess"/></label>
-        <button v-on:click="guesses.push(guess)">Guess</button>
-        <ul>
-          <li v-for="thisGuess in guesses">{{ thisGuess }}</li>
-        </ul>
-      </div>
+      <round-detail></round-detail>
     </div>
   </body>
 </html>
