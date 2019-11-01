@@ -9,17 +9,10 @@
     <Deck class="player-deck" :deck="deck"></Deck>
     <div class="card-hand">
       <template v-for="(card, index) in playerHand">
-        <div class="card-container" :key="card.value+card.suit+'div'" tabindex="-1">
+        <label :key="card.value+card.suit+'label'">
           <input type="radio" :id="card.value+card.suit" :value="index" v-model="playerSelection" />
-          <label :for="card.value+card.suit">
-            <Card
-              :name="card.name"
-              :value="card.value"
-              :suit="card.suit"
-              :key="card.value+card.suit"
-            ></Card>
-          </label>
-        </div>
+          <Card :name="card.name" :value="card.value" :suit="card.suit" :key="card.value+card.suit"></Card>
+        </label>
       </template>
     </div>
   </div>
@@ -37,43 +30,33 @@ export default {
   data: function() {
     return {
       playerSelection: null,
-      playerHand: this.cards,
-      deck: this.drawpile
+      playerHand: this.cards.slice(0),
+      deck: this.drawpile.slice(0)
     };
   },
   props: {
     cards: Array,
-    drawpile: Array,
-    resetdata: Boolean
+    drawpile: Array
   },
   watch: {
     playerHand: function() {
       if (this.playerHand.length == 0) {
         this.$emit("end-game");
       }
-    },
-    resetdata: function() {
-      this.reset();
     }
   },
   methods: {
     playCard: function() {
-      this.$emit("run-round", this.playerHand[this.playerSelection]);
+      let chosenCard = this.playerHand[this.playerSelection];
+      this.$emit("run-round", chosenCard);
       if (this.deck.length > 0) {
         let newCard = this.deck[0];
-        this.deck = this.deck.slice(1);
+        this.deck.shift();
         this.playerHand.splice(this.playerSelection, 1, newCard);
       } else {
         this.playerHand.splice(this.playerSelection, 1);
       }
       this.playerSelection = null;
-    },
-
-    reset: function() {
-      console.log("reset");
-      this.playerSelection = null;
-      this.playerHand = this.cards;
-      this.deck = this.drawpile;
     }
   }
 };
@@ -94,6 +77,7 @@ export default {
 .play-card-button {
   grid-area: button;
   justify-self: center;
+  margin-bottom: 15px;
 }
 .player-deck {
   text-align: center;
@@ -121,10 +105,14 @@ input[type="radio"] {
   visibility: hidden;
 }
 
-input[type="radio"]:checked,
-.card-container:hover,
-.card-container:focus {
-  transform: translateY(-50px) scale(1.2);
+input[type="radio"]:checked + .card,
+label .card:hover,
+label .card:focus {
+  transform: translateY(-50px) scale(1.3);
   outline: 0;
+}
+
+input[type="radio"]:checked + .card {
+  box-shadow: 0 0 7px orangered;
 }
 </style>

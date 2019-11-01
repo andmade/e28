@@ -14,13 +14,12 @@
       <div>
         <p v-if="gameResult != 'TIE'" class="endgame-results">
           Game over! You have
-          <span :class="gameResult">{{ gameResult }}</span>
-          !
+          <span :class="gameResult">{{ gameResult }}!</span>
         </p>
 
         <p v-if="gameResult == 'TIE'" class="endgame-results">
           Game over! The war ended in a
-          <span :class="gameResult">{{ gameResult }}</span>!
+          <span :class="gameResult">{{ gameResult }}!</span>
         </p>
       </div>
       <button @click="$emit('replay-game')" @keyup.enter="$emit('replay-game')">New game</button>
@@ -45,9 +44,10 @@ export default {
   text-align: center;
 }
 .column {
-  width: 48%;
+  width: 45%;
   float: left;
   text-align: center;
+  padding: 3px;
 }
 
 .score {

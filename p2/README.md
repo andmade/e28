@@ -1,5 +1,3 @@
-_Any instructions/notes in italics should be removed from the template before submitting._
-
 # Project 2
 
 - By: Ashley Davis
@@ -7,11 +5,10 @@ _Any instructions/notes in italics should be removed from the template before su
 
 ## Build strategy
 
-_Put an x in the build strategy you used. Put an x in each if you tackled both._
-
 - [ ] Integrated
 - [x] Comprehensive
 
 ## Outside resources
 
-_Your list of outside resources go here._
+- "Build Decoupled Vue.js Applications with Hooks": https://markus.oberlehner.net/blog/build-decoupled-vue-applications-with-hooks **(Didn't understand everything with the hook system, but at least it helped with figuring out I could move the deck/scoring business logic to a separate file and import the functions.)**
+- "The correct way to force Vue to re-render a component?": https://michaelnthiessen.com/force-re-render/ **(Used to fix last-minute bug with resetting the game. Resulted in giving a component a key, in this case, the number of games. Vue complained if I altered the props themselves because the parent could rewrite them, so I re-assigned them as data, only to discover they wouldn't change if the props were changed. In general, trying to come up with creative uses of emit and props to affect change across components was the hardest part of the project. )**

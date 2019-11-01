@@ -19,9 +19,9 @@
         <Hand
           :cards="initialPlayerHand"
           :drawpile="initialPlayerDeck"
-          :resetdata="resetData"
           @run-round="runRound($event)"
           @end-game="endGame()"
+          :key="gameNumber"
         ></Hand>
       </div>
     </main>
@@ -59,7 +59,7 @@ export default {
       initialPlayerHand: null,
       computerDeck: null,
       gameResult: "",
-      resetData: false
+      gameNumber: 0
     };
   },
   mounted: function() {
@@ -68,20 +68,19 @@ export default {
   },
   methods: {
     startGame: function() {
-      console.log("replay");
       this.gameDeck = generateDeck();
 
-      this.initialPlayerDeck = this.gameDeck.slice(0, 3);
+      this.initialPlayerDeck = this.gameDeck.slice(0, 26);
       this.computerDeck = this.gameDeck.slice(26);
 
       this.initialPlayerHand = this.initialPlayerDeck.splice(0, 5);
-      this.computerHand = this.computerDeck.splice(0, 5);
 
       this.newGame = false;
       this.showDirections = false;
     },
     runRound: function(playedCard) {
       let computerCard = this.computerDeck.shift();
+
       this.roundResult = roundResults(playedCard, computerCard);
       switch (this.roundResult) {
         case "WON":
@@ -103,7 +102,6 @@ export default {
           : "TIE";
     },
     replayGame: function() {
-      console.log("here");
       this.previousPlayerCard = null;
       this.previousComputerCard = null;
 
@@ -112,10 +110,9 @@ export default {
 
       this.roundResult = null;
       this.gameResult = null;
-      this.resetData = true;
-      this.startGame();
 
-      this.resetData = true;
+      this.startGame();
+      this.gameNumber++;
     }
   }
 };

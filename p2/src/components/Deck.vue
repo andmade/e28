@@ -3,7 +3,7 @@
     <p>
       <strong>Cards in Deck: {{ size }}</strong>
     </p>
-    <img v-if="!deck.empty" src="../assets/deck.jpg" alt="Back of Card Deck" />
+    <img src="../assets/deck.jpg" alt="Back of Card Deck" />
   </div>
 </template>
 <script>
@@ -14,9 +14,6 @@ export default {
   computed: {
     size: function() {
       return this.deck != [] ? this.deck.length : 0;
-    },
-    empty: function() {
-      return this.deck == [];
     }
   },
   props: {

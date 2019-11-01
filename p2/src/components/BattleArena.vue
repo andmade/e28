@@ -41,7 +41,7 @@ export default {
 <style>
 .battle-arena {
   grid-area: battle;
-  min-height: 300px;
+  min-height: 330px;
   text-align: center;
   width: 100%;
 }
