@@ -10,26 +10,15 @@ export default {
   data: function() {
     return {};
   },
-  props: {
-    name: {
-      type: String,
-      default: ""
-    },
-    value: {
-      type: Number,
-      default: 0
-    },
-    suit: {
-      type: String,
-      default: ""
-    }
-  }
+  props: ["name", "value", "suit"]
 };
 </script>
 
 <style>
 .card {
   position: relative;
+  display: inline-block;
+  margin: 0 auto;
   border: solid 1px black;
   box-shadow: 2px 2px 2px gray;
   border-radius: 5px;
@@ -55,7 +44,6 @@ span {
 .spades::after {
   content: "\2660";
 }
-
 .spades,
 .clubs {
   color: black;

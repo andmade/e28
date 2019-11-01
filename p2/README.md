@@ -1,24 +1,17 @@
-# p2
+_Any instructions/notes in italics should be removed from the template before submitting._
 
-## Project setup
-```
-npm install
-```
+# Project 2
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+- By: Ashley Davis
+- Production URL: <http://p2.andmade.me>
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## Build strategy
 
-### Lints and fixes files
-```
-npm run lint
-```
+_Put an x in the build strategy you used. Put an x in each if you tackled both._
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+- [ ] Integrated
+- [x] Comprehensive
+
+## Outside resources
+
+_Your list of outside resources go here._
