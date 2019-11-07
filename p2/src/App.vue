@@ -30,14 +30,14 @@
 
 <script>
 // import Card from "./components/Card.vue";
-import Hand from "./components/Hand.vue";
-import Header from "./components/Header.vue";
-import BattleArena from "./components/BattleArena.vue";
-import Scoreboard from "./components/Scoreboard.vue";
-import { generateDeck, roundResults } from "./utils/game.js";
+import Hand from './components/Hand.vue';
+import Header from './components/Header.vue';
+import BattleArena from './components/BattleArena.vue';
+import Scoreboard from './components/Scoreboard.vue';
+import { generateDeck, roundResults } from './utils/game.js';
 
 export default {
-  name: "app",
+  name: 'app',
   components: {
     //Card,
     Hand,
@@ -51,14 +51,14 @@ export default {
       showDirections: true,
       previousPlayerCard: null,
       previousComputerCard: null,
-      roundResult: "",
+      roundResult: '',
       playerScore: 0,
       computerScore: 0,
       gameDeck: null,
       initialPlayerDeck: null,
       initialPlayerHand: null,
       computerDeck: null,
-      gameResult: "",
+      gameResult: '',
       gameNumber: 0
     };
   },
@@ -83,10 +83,10 @@ export default {
 
       this.roundResult = roundResults(playedCard, computerCard);
       switch (this.roundResult) {
-        case "WON":
+        case 'WON':
           this.playerScore++;
           break;
-        case "LOST":
+        case 'LOST':
           this.computerScore++;
           break;
       }
@@ -96,10 +96,10 @@ export default {
     endGame: function() {
       this.gameResult =
         this.playerScore > this.computerScore
-          ? "WON"
+          ? 'WON'
           : this.playerScore < this.computerScore
-          ? "LOST"
-          : "TIE";
+          ? 'LOST'
+          : 'TIE';
     },
     replayGame: function() {
       this.previousPlayerCard = null;
@@ -124,7 +124,7 @@ export default {
 }
 
 #app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -150,8 +150,8 @@ button {
   justify-content: space-around;
   justify-items: center;
   grid-template-areas:
-    ". battle score score ."
-    "deck deck deck deck deck";
+    '. battle score score .'
+    'deck deck deck deck deck';
 }
 
 h3 {

@@ -26,11 +26,13 @@
         </div>
         <div class="game-description" v-show="showDirections">
           <p>
-            <strong>How to Play:</strong>The classic card game <i>War</i> , with a twist.
-            In this take, a standard 52-card deck is evenly divided between two players.
-            Each player starts with a hand of 5 cards. At each turn, they simulataneously
-            pick a card to 'go to battle' against the other player. The results of the
-            battle are determined as so:
+            <strong>How to Play:</strong>
+            The classic card game
+            <i>War</i>
+            , with a twist. In this take, a standard 52-card deck is evenly divided
+            between two players. Each player starts with a hand of 5 cards. At each turn,
+            they simulataneously pick a card to 'go to battle' against the other player.
+            The results of the battle are determined as so:
           </p>
 
           <ul>
@@ -83,13 +85,19 @@
             <template v-if="!playerHand.length">
               <div>
                 <p v-if="gameResult == 'WIN'" class="endgame-results">
-                  Game over! You have <span class="WIN">WON</span>!
+                  Game over! You have
+                  <span class="WIN">WON</span>
+                  !
                 </p>
                 <p v-if="gameResult == 'LOSE'" class="endgame-results">
-                  Game over! You have <span class="LOSE">LOST</span>!
+                  Game over! You have
+                  <span class="LOSE">LOST</span>
+                  !
                 </p>
                 <p v-if="gameResult == 'TIE'" class="endgame-results">
-                  Game over! The war ended in a <span class="TIE">DRAW</span>!
+                  Game over! The war ended in a
+                  <span class="TIE">DRAW</span>
+                  !
                 </p>
               </div>
               <button @click="replayGame()" @keyup.enter="replayGame()">
@@ -109,7 +117,7 @@
             <div class="player-deck">
               <img v-if="playerDeck.length" src="deck.jpg" alt="Back of Card Deck" />
               <p>
-                <strong>Cards in Deck: {{ playerDeck.length }} </strong>
+                <strong>Cards in Deck: {{ playerDeck.length }}</strong>
               </p>
             </div>
             <div class="card-hand">
