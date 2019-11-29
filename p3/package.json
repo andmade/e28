@@ -1,6 +1,7 @@
 {
   "name": "p3",
   "version": "0.1.0",
+  "main": "src/assets/sass/p3.scss",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -10,8 +11,8 @@
   },
   "dependencies": {
     "axios": "^0.19.0",
-    "bulma": "^0.8.0",
     "core-js": "^3.3.2",
+    "lodash": "^4.17.15",
     "moment": "^2.24.0",
     "string-strip-html": "^4.3.8",
     "vue": "^2.6.10",
@@ -22,6 +23,7 @@
     "@vue/cli-plugin-eslint": "^4.0.0",
     "@vue/cli-service": "^4.0.0",
     "babel-eslint": "^10.0.3",
+    "bulma": "^0.8.0",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
     "fibers": "^4.0.2",

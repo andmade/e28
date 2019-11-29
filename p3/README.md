@@ -1,23 +1,26 @@
-_Any instructions/notes in italics should be removed from the template before submitting._
-
 # Project 3
 
-- By: _your first and last name_
-- Production URL: <http://p3.yourdomain.com>
+- By: Ashley Davis
+- Production URL: <http://p3.andmade.me>
 
 ## Outline of features
 
-_Brief list summarizing the features of your app_
+Users can:
+
+- See featured events on home page
+- List All Events
+- List All Events by Category
+- Bookmark Events
+- View Bookmarked Events
 
 ## Outside resources
 
-_Your list of outside resources go here._
-
-- string-strip-html package: <https://www.npmjs.com/package/string-strip-html>
-- moment: https://www.npmjs.com/package/moment
-- bulma framework: https://bulma.io/
-- Harvard gazette
+- string-strip-html package: <https://www.npmjs.com/package/string-strip-html> (for string formatting)
+- moment: https://www.npmjs.com/package/moment (for date/time formatting)
+- bulma framework: https://bulma.io/ (the UI framework)
+- Harvard gazette (source of events info)
+- lodash: https://lodash.com/ (for array/object operations)
 
 ## Notes for instructor
 
-_Any notes for me to refer to while grading; if none, omit this section._
+Right now, the website is designed for desktop-only. For p4, it will be mobile-optimized as well. The EventsPage and CategoryPage are also pretty similar, so I'll be re-factoring those for p4, too.
