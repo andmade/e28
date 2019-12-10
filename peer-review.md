@@ -41,7 +41,7 @@ The popup on the home page also has a couple of spelling errors:
 
 ### Were there any parts of the interface that you found confusing or unclear?
 
-In terms of interface improvements, I might flash a little message under the input field when a keyboard key is set/changed or have some small text showing what the current value is. Right now, the change takes effect when one presses enter, but there's no indication that it has done so save a user trying it out (or even that an enter press is required; I initially assumed it was not).
+In terms of interface improvements, I might flash a little message under the input field when a keyboard key is set/changed or have some small text showing what the current value is. Right now, the change takes effect when one presses enter, but there's no indication that it has done so save a user trying it out (or even that an enter press is required; I initially assumed it was not). You might even set it up so that every time the value is changed, the relevant wave is briefly activated to show the new value.
 
 A legend popup of what values represent for some fields would be useful, such as for colors. 0-30 for reddish, 30-60 for orange, etc. Though if your audience for the app should be familiar with the 360 color wheel, this may not be necessary.
 
