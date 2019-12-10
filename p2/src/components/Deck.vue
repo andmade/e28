@@ -3,7 +3,7 @@
     <p>
       <strong>Cards in Deck: {{ size }}</strong>
     </p>
-    <img src="../assets/deck.jpg" alt="Back of Card Deck" />
+    <img src='../assets/deck.jpg' alt='Back of Card Deck' />
   </div>
 </template>
 <script>
@@ -24,6 +24,7 @@ export default {
       }
     }
   }
+};
 </script>
 <style>
 </style>

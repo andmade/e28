@@ -89,6 +89,23 @@
       "sponsor": "Harvard Ed Portal",
       "contact": "",
       "attendees": 0
+    },
+    {
+      "eventID": 139881864,
+      "featured": false,
+      "title": "&quot;A Cultural History of the Cosmos&quot;",
+      "description": "Harvard University Technology Assessment in Health Care Monthly Seminar Series.<br /> <br /> Continental breakfast served.",
+      "location": "<a href=\"http://maps.google.com/?q=Faculty+Club%2c+Harvard+University%2c+20+Quincy+St%2c+Cambridge%2c+MA+02138\" target=\"_blank\">Harvard Faculty Club<br />Room 225, 2nd floor<br />20 Quincy St.<br />Cambridge</a>",
+      "startDateTime": "2019-11-21T07:45:00",
+      "endDateTime": "2019-11-21T09:15:00",
+      "allDay": false,
+      "eventThumb": "https://www.trumba.com/i/DgCAGTCMRgM3O8lX3NrDp2kQ.jpg",
+
+      "eventImage": "https://www.trumba.com/i/DgD1A%2AudNAWx8QBSM4xIa2bn.jpg",
+      "categories": ["Lecture"],
+      "sponsor": "Harvard University Technology Assessment in Health Care Monthly Seminar Series",
+      "contact": "",
+      "attendees": 0
     }
   ]
 }
