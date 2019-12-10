@@ -8,7 +8,7 @@
 
 In compiling the code on my system, I had an error with imports of the [`easingService.js`](https://github.com/conc2304/e28/blob/master/p3/src/js/services/easingService.js) and [`renderPolygon.js`](https://github.com/conc2304/e28/blob/master/p3/src/js/services/renderPolygon.js) files. The files begin with lowercase letters, but are referenced using capital letters in the import commands. My guess is that the dev is using a case-insensitive filesystem, so didn't have any issues, while I am not. However, it may just be a quirk with my system (which is Ubuntu on the Windows Subsystem for Linux). In any case, I renamed those files to begin with caps and all was fine, so I'd suggest altering the naming of those files to be consistent with the PascalCase of the others in the folder to forestall any problems.
 
-In the app, when clearing a set keyboard key with the `x` button, the console shows an error stemming from [`ParameterAuxInput.vue`](https://github.com/conc2304/e28/blob/master/p3/src/components/ParameterAuxInput.vue) that `setKey` is not defined. This can be fixed by using `this` to reference the function in the `clear` method in that file (starts at line 77).
+In the app, when clearing a set keyboard key with the `x` button, the console shows an error stemming from [`ParameterAuxInput.vue`](https://github.com/conc2304/e28/blob/master/p3/src/components/ParameterAuxInput.vue) that `setKey` is not defined. This can be fixed by using `this` to reference the function in the `clear` method in that file (starts at line 80).
 
 ```javascript
  clear() {
@@ -33,7 +33,7 @@ Also, when setting a key, if the field is blank when pressing enter, the console
 
 There's also some empty css in this file, along with an empty function that may be outdated (`setValue(event) {}`, which seems to have been subsumed by the `setKey` function).
 
-The popup on the home page also has a couple of spelling errors:
+The popup on the [home page](https://github.com/conc2304/e28/blob/master/p3/src/views/HomePage.vue) also has a couple of spelling errors:
 
 > Line 76: _"VYZBY is an interactive audio visualizer that let's you interact with **in** in many ways."_,
 
