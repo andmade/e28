@@ -2,7 +2,7 @@ import json
 import codecs
 
 converted_events = {}
-converted_events['events'] = []
+converted_events['events'] = {}
 
 with open('gazette.json', 'r',encoding='utf-8-sig') as f:
     events_dict = json.load(f)
@@ -35,7 +35,7 @@ for event in events_dict:
         elif field['fieldID'] == 15225:
             current['contactInfo'] = field['value']
 
-    converted_events['events'].append(current)
+    converted_events['events'][event['eventID']] = current
 
 with open('database.json', 'w') as outfile:
     json.dump(converted_events,  outfile, indent=2, sort_keys=False,)
