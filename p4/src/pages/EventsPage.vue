@@ -5,12 +5,7 @@
     </div>
     <div id="events_container" class="column">
       <div class="columns is-multiline">
-        <EventItem
-          v-for="event in events"
-          :key="event.eventID"
-          :event="event"
-          :bookmarks="bookmarks"
-        ></EventItem>
+        <EventItem v-for="event in events" :key="event.eventID" :event="event"></EventItem>
       </div>
     </div>
   </div>
