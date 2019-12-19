@@ -14,7 +14,7 @@ export default {
     return { links: ['home', 'events', 'bookmarks'] };
   },
   mounted: function() {
-    this.$store.dispatch('setEvents');
+    this.$store.dispatch('initialize');
   }
 };
 </script>

@@ -8,28 +8,54 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     bookmarks: [],
-    events: []
+    events: [],
+    selectedCategories: [],
+    categories: []
   },
   mutations: {
     setEvents(state, payload) {
       state.events = payload;
+    },
+    setCategories(state, payload) {
+      state.categories = payload;
+    },
+    setSelectedCategories(state, payload) {
+      state.selectedCategories = payload;
+    },
+    updateSelectedCategories(state, payload) {
+      state.selectedCategories = payload;
     }
   },
   getters: {
     featuredEvents(state) {
-      console.log(state.events);
       return _.filter(state.events, { featured: true });
     },
-    getTodoById(state) {
-      return function(id) {
-        return state.todos.find(todo => todo.id === id);
-      };
+    filteredEvents(state) {
+      if (!state.selectedCategories) {
+        return {};
+      }
+      return _.filter(state.events, function(event) {
+        return _.some(event.categories, function(cat) {
+          return _.includes(state.selectedCategories, cat);
+        });
+      });
     }
   },
+
   actions: {
-    setEvents(context) {
+    initialize(context) {
       axios.get(global.config.api + 'events.json').then(response => {
-        context.commit('setEvents', response.data);
+        let events = response.data;
+        let categories = _.chain(events)
+          .flatMap(function(event) {
+            return event.categories;
+          })
+          .uniq()
+          .sort()
+          .value();
+        context.commit('setEvents', events);
+        context.commit('setCategories', categories);
+        context.commit('setSelectedCategories', categories);
       });
     }
   }

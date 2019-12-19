@@ -6,11 +6,11 @@
           <b-jumbotron header="here@">
             <p class="lead">
               Looking for something to do here at campus?
-              <span class="text-brand-emphasis text-primary">You've found it!</span>
+              <span
+                class="text-brand-emphasis text-primary"
+              >You've found it!</span>
             </p>
-            <p class="sub-lead">
-              Browse, search, and bookmark from among hundreds of campus events.
-            </p>
+            <p class="sub-lead">Browse, search, and bookmark from among hundreds of campus events.</p>
             <b-button variant="primary" href="#">Browse All Events</b-button>
           </b-jumbotron>
         </b-col>
@@ -18,11 +18,7 @@
         <b-col sm="12" md="8">
           <h2>Featured Events</h2>
           <b-row align-h="around" class="row-cols-1 row-cols-md-3">
-            <FeaturedEvent
-              v-for="event in featuredEvents"
-              :key="event.eventID"
-              :event="event"
-            ></FeaturedEvent>
+            <FeaturedEvent v-for="event in featuredEvents" :key="event.eventID" :event="event"></FeaturedEvent>
           </b-row>
         </b-col>
         <!-- <b-col
@@ -54,13 +50,16 @@ export default {
 <style lang="scss" scoped>
 main {
   padding: 15px;
-  background-color: #e9ecef;
 }
 
 .container-fluid {
   padding: 0;
 }
 
+.jumbotron {
+  background-color: #f6f7f9;
+  height: 100%;
+}
 .jumbotron h1 {
   font-weight: bold;
 }
