@@ -1,24 +1,14 @@
-# p4
+*Any instructions/notes in italics should be removed from the template before submitting.* 
 
-## Project setup
-```
-npm install
-```
+# Project 4
++ By: *your first and last name*
++ Production URL: <http://p4.yourdomain.com>
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Improvements based on P3 peer review feedback
+*Provide a summary of improvements made based on P3 peer review feedback; if there was no actionable feedback, leave this blank.*
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## Outside resources
+*Your list of outside resources go here.*
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Notes for instructor
+*Any notes for me to refer to while grading; if none, omit this section.*ff
