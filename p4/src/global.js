@@ -1,7 +1,5 @@
-export const axios = require('axios');
-
 export const config = {
-  api: 'https://my-json-server.typicode.com/andmade/e28-p3-api/events'
+  api: 'https://e28-p4-andmade.firebaseio.com/'
 };
 
 export function addToBookmarks(event) {

@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <TopNav :links="links"></TopNav>
     <router-view></router-view>
   </div>
 </template>
@@ -10,9 +11,10 @@ export default {
   name: 'app',
   components: { TopNav },
   data: function() {
-    return {
-      links: ['home', 'events', 'bookmarks']
-    };
+    return { links: ['home', 'events', 'bookmarks'] };
+  },
+  mounted: function() {
+    this.$store.dispatch('setEvents');
   }
 };
 </script>

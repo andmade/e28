@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700,700i,800,800i,900,900i&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i,900,900i&display=swap');
+
+/* Custom Variables */
+
+$blue: #44697d;
+$indigo: #6610f2;
+$purple: #6f42c1;
+$pink: #e83e8c;
+$red: #c31e3d;
+$orange: #d55c19;
+$yellow: #f0ab00;
+$green: #6a7f10;
+$teal: #007a87;
+$cyan: #003946;
+
+$theme-colors: (
+  primary: $red,
+  secondary: $teal,
+  success: $green,
+  info: $blue,
+  warning: $orange,
+  danger: $yellow
+);
+
+$font-family-base: 'Lato', sans-serif;
+$headings-font-family: 'Montserrat', sans-serif;
+
+/* Bootstrap Import */
+@import 'node_modules/bootstrap/scss/bootstrap';
+@import 'node_modules/bootstrap-vue/src/index.scss';
