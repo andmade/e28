@@ -5,11 +5,15 @@
 
 ## Improvements based on P3 peer review feedback
 
-- Edited the events page to allow the selection of more than one category
+- Edited the EventsPage to allow the selection of more than one category and modified the EventPage to no longer display the category sidebar.
 
 ## Outside resources
 
-_Your list of outside resources go here._
+- string-strip-html package: <https://www.npmjs.com/package/string-strip-html> (for string formatting)
+- vue-moment package: https://www.npmjs.com/package/vue-moment (for date/time formatting)
+- bootstrap vue: https://bootstrap-vue.js.org/ (the UI framework)
+- Harvard gazette (source of events info)
+- lodash: https://lodash.com/ (for array/object operations)
 
 ## Notes for instructor
 
