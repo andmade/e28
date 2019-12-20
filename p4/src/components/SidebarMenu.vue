@@ -1,5 +1,5 @@
 <template>
-  <div id="sidebar" class="bg-secondary">
+  <div id="sidebar">
     <section>
       <b-form-group label="Categories">
         <b-form-checkbox

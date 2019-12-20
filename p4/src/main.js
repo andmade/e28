@@ -15,6 +15,8 @@ import BootstrapVue from 'bootstrap-vue';
 import './assets/css/custom.scss';
 Vue.use(BootstrapVue);
 
+Vue.use(require('vue-moment'));
+
 Vue.config.productionTip = false;
 
 export const _ = require('lodash');
@@ -35,7 +37,6 @@ const router = new VueRouter({
 });
 /* ****************** FILTERS ***************** */
 const stripHtml = require('string-strip-html');
-const moment = require('moment');
 
 // From Vue Docs: https://vuejs.org/v2/guide/filters.html
 Vue.filter('capitalize', function(value) {
@@ -56,11 +57,11 @@ Vue.filter('location', function(value) {
   return stripHtml(value, { onlyStripTags: ['br'] });
 });
 
-Vue.filter('prettydate', function(value) {
-  if (!value) return '';
-  value = value.toString();
-  return moment(value).format('MMMM D, YYYY');
-});
+// Vue.filter('prettydate', function(value) {
+//   if (!value) return '';
+//   value = value.toString();
+//   return moment(value).format('MMMM D, YYYY');
+// });
 
 new Vue({
   store: store,

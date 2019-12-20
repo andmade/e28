@@ -1,14 +1,16 @@
 <template>
-  <div class="columns">
-    <div id="sidebar_container" class="column is-one-fifth">
-      <SidebarMenu></SidebarMenu>
-    </div>
-    <div id="events_container" class="column">
-      <div class="columns is-multiline">
-        <EventItem v-for="event in events" :key="event.eventID" :event="event"></EventItem>
-      </div>
-    </div>
-  </div>
+  <b-container fluid>
+    <b-row>
+      <b-col id="sidebar_container" sm="12" md="2">
+        <SidebarMenu></SidebarMenu>
+      </b-col>
+      <b-col id="events_container" sm="12" md="10">
+        <b-row class="row-cols-md-3 row-cols-lg-4">
+          <EventItem v-for="event in events" :key="event.eventID" :event="event"></EventItem>
+        </b-row>
+      </b-col>
+    </b-row>
+  </b-container>
 </template>
 
 <script>
@@ -30,7 +32,7 @@ export default {
 </script>
 
 <style>
-#event_container {
-  max-width: 800px;
+.container-fluid {
+  margin-top: 10px;
 }
 </style>

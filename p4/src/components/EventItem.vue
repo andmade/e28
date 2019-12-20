@@ -1,34 +1,31 @@
 <template>
-  <router-link
-    exact
-    :key="event.eventID"
-    :to="{ name: 'event', params: { id: event.eventID } }"
-    class="column is-one-quarter card-container"
-  >
-    <div class="card">
-      <div class="card-image">
-        <figure class="image">
-          <img :src="event.eventThumb" alt="Placeholder image" />
-        </figure>
-      </div>
-      <div class="card-content">
-        <div class="content">
-          <p class="event-title">{{ event.title | nohtml }}</p>
-          <p class="event-time">{{ event.startDateTime | prettydate }}</p>
+  <b-col>
+    <b-card no-body img-alt="Image" img-top tag="article" style="max-width: 20rem;" class="col">
+      <router-link :to="{ name: 'event', params: { id: event.eventID } }">
+        <b-card-img :src="event.thumbnail"></b-card-img>
+      </router-link>
+      <b-card-body>
+        <b-card-title>{{ event.title | nohtml }}</b-card-title>
 
-          <div class="event-location level">
-            <span class="icon is-small level-item">
-              <i class="fa-bookmark" :class="[bookmarked ? 'fas' : 'far']"></i>
-            </span>
-            <span class="icon is-small level-item">
-              <i class="fas fa-map-marked-alt"></i>
-            </span>
-            <address class="is-size-7 level-item" v-html="event.location.replace(/<br \/>/g, ', ')"></address>
+        <b-card-text>
+          <p>{{ event.startDateTime | moment("ddd, MMM M") }}</p>
+          <p
+            v-if="!event.allDay"
+          >{{ event.startDateTime | moment("h a") }} - {{ event.endDateTime | moment("h a") }}</p>
+          <p>
+            <i class="fa-bookmark" :class="[bookmarked ? 'fas' : 'far']"></i>
+          </p>
+          <div class="address-container">
+            <i class="fas fa-map-marked-alt"></i>
+            <address v-html="event.location.replace(/<br \/>/g, ', ')"></address>
           </div>
-        </div>
-      </div>
-    </div>
-  </router-link>
+        </b-card-text>
+      </b-card-body>
+      <router-link class="footer-link" :to="{ name: 'event', params: { id: event.eventID } }">
+        <b-card-footer footer-bg-variant="info" footer-text-variant="light">More Info</b-card-footer>
+      </router-link>
+    </b-card>
+  </b-col>
 </template>
 
 <script>
@@ -43,37 +40,66 @@ export default {
 };
 </script>
 
-<style scoped>
-p {
-  padding: 0 !important;
-  margin: 0 !important;
-}
-.level-item {
-  padding: 10px;
-}
-address {
-  text-emphasis: wrap !important;
-  max-width: 100%;
-}
-
-.event-title {
+<style lang="scss" scoped>
+.card-title {
+  overflow: hidden;
+  font-size: 1em;
   font-weight: bold;
+  margin-bottom: 0;
 }
 
-.event-location {
-  position: absolute;
-  bottom: 0;
-  padding: 5px;
-  max-width: 80%;
-  overflow-wrap: break-word;
+.col {
+  margin-bottom: 10px;
 }
-figure {
+
+.card-img {
+  object-fit: cover;
   max-height: 150px !important;
   overflow: hidden;
 }
 
-.card-content {
+.card-body {
+  padding: 8px;
+}
+
+.card-text {
+  font-size: 0.9em;
+  p {
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.footer-link {
+  text-decoration: none;
+}
+
+.card-footer {
   padding: 5px;
-  height: 160px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1em;
+}
+
+article {
+  height: 100%;
+  padding: 0;
+}
+address {
+  text-emphasis: wrap !important;
+  max-width: 100%;
+  font-size: 0.8em;
+}
+
+.address-container {
+  i {
+    float: left;
+    padding-right: 5px;
+  }
+}
+
+figure {
+  max-height: 150px !important;
+  overflow: hidden;
 }
 </style>

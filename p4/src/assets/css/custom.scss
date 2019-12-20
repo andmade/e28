@@ -3,7 +3,6 @@
 
 /* Custom Variables */
 
-$blue: #44697d;
 $indigo: #6610f2;
 $purple: #6f42c1;
 $pink: #e83e8c;
@@ -12,20 +11,25 @@ $orange: #d55c19;
 $yellow: #f0ab00;
 $green: #6a7f10;
 $teal: #007a87;
-$cyan: #003946;
 
 $theme-colors: (
   primary: $red,
   secondary: $teal,
   success: $green,
-  info: $blue,
   warning: $orange,
   danger: $yellow
 );
 
 $font-family-base: 'Lato', sans-serif;
-$headings-font-family: 'Montserrat', sans-serif;
+$headings-font-family: 'Lato', sans-serif;
 $body-bg: #fff;
+
+html {
+  height: 100%;
+}
+body {
+  min-height: 100%;
+}
 
 /* Bootstrap Import */
 @import 'node_modules/bootstrap/scss/bootstrap';
