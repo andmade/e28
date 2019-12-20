@@ -39,6 +39,13 @@ export default new Vuex.Store({
           return _.includes(state.selectedCategories, cat);
         });
       });
+    },
+    getEventById(state) {
+      return function(id) {
+        return _.find(state.events, function(evt) {
+          return evt.eventID == id;
+        });
+      };
     }
   },
 

@@ -2,7 +2,7 @@
   <main>
     <b-container fluid>
       <b-row>
-        <b-col sm="12" md="5">
+        <b-col class="jumbtron-container" sm="12" md="5">
           <b-jumbotron header="here@">
             <p class="lead">
               Looking for something to do here at campus?

@@ -2,10 +2,8 @@ import Vue from 'vue';
 import App from './App.vue';
 import HomePage from './pages/HomePage.vue';
 import EventsPage from './pages/EventsPage.vue';
-// import EventPage from './pages/EventPage.vue';
+import EventPage from './pages/EventPage.vue';
 // import BookmarksPage from './pages/BookmarksPage.vue';
-// import SearchPage from './pages/SearchPage.vue';
-// import CategoryPage from './pages/CategoryPage.vue';
 import store from './store/index.js';
 
 import VueRouter from 'vue-router';
@@ -25,10 +23,8 @@ export const _ = require('lodash');
 const routes = [
   { path: '/', component: HomePage, name: 'home', props: true },
   { path: '/events', component: EventsPage, name: 'events', props: true },
-  // { path: '/events/:category', component: CategoryPage, name: 'category', props: true },
-  { path: '/event/:id', component: HomePage, name: 'event', props: true },
+  { path: '/event/:id', component: EventPage, name: 'event', props: true },
   { path: '/bookmarks/', component: HomePage, name: 'bookmarks', props: true }
-  //   { path: '/search/', component: SearchPage, name: 'search', props: true }
 ];
 
 const router = new VueRouter({

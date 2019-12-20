@@ -5,7 +5,7 @@
 
 ## Improvements based on P3 peer review feedback
 
-_Provide a summary of improvements made based on P3 peer review feedback; if there was no actionable feedback, leave this blank._
+- Edited the events page to allow the selection of more than one category
 
 ## Outside resources
 
